@@ -1,0 +1,26 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Tajjuddiin Auliya Ahaadiin" />
+    <meta
+      name="dscription"
+      content="This is Tajjudin's Personal Website. in this site you can know my background and expirience about web development. feel free to contact me"
+    />
+    <title>Personal Web | {{title}}</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="/assets/styles/style.css" />
+  </head>
+  <body>
+     {{>navbar currentPage=title}}
+     {{> @partial-block }}
+
+
+     <script src="assets/scripts/main.js"></script>
+    <script src="scripts/project.js"></script>
+  </body>
+</html>

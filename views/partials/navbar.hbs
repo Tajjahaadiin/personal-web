@@ -1,0 +1,14 @@
+<nav>
+  <a href="#heading"
+    ><strong>Tajj</strong
+    ><img src="/assets/images/bracket-3-svgrepo-com.svg" alt="Bracket Logo"
+  /></a>
+  <ul class="links-list">
+    <li><a href="/" class="{{#if (equal currentPage 'Home')}}choosed {{/if}}">Home</a></li>
+    <li><a href="project" class="{{#if (equal currentPage 'Project')}}choosed {{/if}}">My project</a></li>
+    <li class='nav-item'>
+      <a class='nav-link {{#if (equal currentPage 'Testimonial')}}choosed {{/if}}' href='testimonial'>Testimonial</a>
+    </li>
+  </ul>
+  <a href="contact" id="contact-nav">contact me</a>
+</nav>

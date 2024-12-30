@@ -1,0 +1,97 @@
+ {{#> layout }}
+ <form id="projectForm" onsubmit="addProject(event)" method="post" class="project-form">
+    <h1>Add My Project</h1>
+    <div class="form-field">
+      <label for="projectName">Name</label>
+      <input
+        id="projectName"
+        name="projectName"
+        class="form-input"
+        type="text"
+        placeholder=""
+        required
+      />
+    </div>
+    <div class="theDate">
+      <div class="form-field">
+        <label for="startDate">Start Date</label>
+        <input
+          id="startDate"
+          name="startDate"
+          class="form-input"
+          type="date"
+          placeholder=""
+          required
+        />
+      </div>
+      <div class="form-field">
+        <label for="endDate">End Date</label>
+        <input
+          id="endDate"
+          name="endDate"
+          class="form-input"
+          type="date"
+          placeholder=""
+          required
+        />
+      </div>
+    </div>
+    <div class="form-field">
+      <label class="project-desc" for="message">Your Message</label>
+      <textarea
+        id="descProject"
+        name="descProject"
+        class="form-input"
+        rows="6"
+        required
+      ></textarea>
+    </div>
+    <div class="form-field">
+      <span><p>Technologies</p></span>
+      <div class="tech-input">
+        <div class="tech-wrapper">
+          <input type="checkbox" id="nodeJs" name="nodeJs" value="Nodejs" />
+          <label for="nodeJs"> Node JS</label>
+        </div>
+        <div class="tech-wrapper">
+          <input type="checkbox" id="nextjs" name="nextjs" value="Nextjs" />
+          <label for="nextjs"> Next JS</label>
+        </div>
+      </div>
+      <div class="tech-input">
+        <div class="tech-wrapper">
+          <input type="checkbox" id="reactjs" name="reactjs" value="Reactjs" />
+          <label for="reactjs"> React JS</label>
+        </div>
+        <div class="tech-wrapper">
+          <input
+            type="checkbox"
+            id="typescript"
+            name="typescript"
+            value="Typescript"
+          />
+          <label for="typescript"> Typescript</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-field">
+      <label for="input-project-image" class="form-label">Upload Image</label>
+      <div class="input-project-image-group">
+        <label for="input-project-image">
+          <p>choose</p>
+          <img src="images/attach.png" />
+        </label>
+        <input
+          id="input-project-image"
+          name="input-project-image"
+          class="form-input"
+          type="file"
+          placeholder="title"
+          hidden
+        />
+      </div>
+    </div>
+
+    <button type="submit" class="form-submit-button">Submit</button>
+  </form>
+{{/layout}}
