@@ -50,6 +50,35 @@
         </div>
       </section>
     </main>
+    <script>function archiveFunction (){
+      event.preventDefault();
+      const form= event.target.form;
+      Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire({
+  position: "center",
+  icon: "success",
+  title: "Your work has been saved",
+  showConfirmButton: false,
+  timer: 1500
+});
+    setTimeout(()=>{
+
+    form.submit();
+    },1500)
+  }
+});
+      }
+
+    </script>
     <script src="/assets/javascript/btn.js" ></script>
     <script src="/assets/javascript/sweetalert.min.js" ></script>
 {{/layout}}
