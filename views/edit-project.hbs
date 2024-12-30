@@ -1,8 +1,8 @@
- {{#> layout }}
- <main>
+{{#>layout title="Edit Project"}}
+    <main>
       <section class="blog-form">
-        <form action="/addblog" method="post"  class="container-form">
-          <h1 class="section-title">ADD MY PROJECT</h1>
+        <form action="/update-project/{{data.id}}?_method=PATCH&image={{ data.image }}" method="post" class="container-form">
+          <h1 class="section-title">Edit MY PROJECT</h1>
           <div class="from-field">
             <label for="input-project-title" class="form-label"
               >Project Name</label
@@ -12,11 +12,10 @@
               name="inputTitle"
               class="form-input"
               type="text"
-              placeholder="Enter Name Project"
+              value="{{data.title}}"
               required
             />
           </div>
-
           <div class="from-field">
             <label class="form-label" for="input-project-content"
               >Description</label
@@ -25,14 +24,12 @@
               id="inputContent"
               name="inputContent"
               class="form-input"
-              rows="8"
-              required
-            ></textarea>
+              rows="8">{{data.content}}</textarea>
           </div>
 
           <div class="checkbox_input" required>
             <label class="form-label" for="input-blog-content"
-              >Technologies</label
+              >Technology</label
             >
             <div class="column">
               <div class="checkbox_input">
@@ -42,14 +39,16 @@
                   id="angular"
                   name="angular"
                   value="Angular"
+                  {{#if angular}}checked{{/if}}
                 />
-                <label for="angular">angular</label><br />
+                <label for="Angular">Angular</label><br />
                 <input
                   class="checkbox"
                   type="checkbox"
                   id="nodeJs"
                   name="nodeJs"
                   value="NodeJs"
+                   {{#if node}}checked{{/if}}
                 />
                 <label for="nodeJs"> Node Js</label><br />
               </div>
@@ -60,6 +59,7 @@
                   id="react"
                   name="react"
                   value="React"
+                   {{#if react}}checked{{/if}}
                 />
                 <label for="react"> React</label><br />
                 <input
@@ -68,6 +68,7 @@
                   id="vueJs"
                   name="vueJs"
                   value="VueJs"
+                   {{#if vue}}checked{{/if}}
                 />
                 <label for="vueJs"> Vue Js</label><br />
               </div>
@@ -94,11 +95,12 @@
           </div>
 
           <div class="button-group">
-            <button onclick="buttonsaveadd()" class="from-submit-button" type="submit">submit</button>
+            <button onclick="buttonsave()" class="from-submit-button" type="submit">Save Project</button>
           </div>
         </form>
       </section>
     </main>
-     <script src="/assets/javascript/btn.js" ></script>
+    <script src="/assets/javascript/btn.js" ></script>
     <script src="/assets/javascript/sweetalert.min.js" ></script>
-{{/layout}}
+
+{{/layout }}

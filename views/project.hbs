@@ -1,8 +1,55 @@
 {{#> layout title="Project"}}
-<main class="project-section">
-</main>
-<section class="gallery">
-  <p>My Project</p>
-  <div id="project-list" class="projec-container"></div>
-</section>
+<main>
+      <section class="mb-5">
+        <div class=" container text-center">
+        <h1 class='text-center'style="  font-family: 'Poppins', sans-serif; color: #ea1d6f; ">MY PROJECT</h1>
+        <a  id="btnAdd" class="My-circle" href="/addproject"><span>New Blog</span></a>
+        </div>
+        <div id="blogList" class="container-fluid mx-auto px-5 mt-4 row row-cols-md-3">
+
+          {{#each projects}}
+          <div id="${i}" class="d-flex justify-content-center my-3">
+            <div class="card p-3 col mx-0" style="background-color: #f0ccc0;">
+              <img src="/assets/images/{{ this.image }}" class="card-img-top" style="height: 200px;" alt="blog-image" />
+                <div class="card px-0" >
+                   <a href="/project-detail/{{this.id}}" class="blog-item-title fw-bold">
+                   {{this.title}}
+                   {{!-- | {{this.dateend}} --}}
+                  </a>
+                  <p >{{formatDateToWIB this.createdAt}}  </p>
+                  <p class="relative-time" style="color: black;">
+                   {{getRelativeTime this.updatedAt}}
+                  </p>
+                  <div class="overflow-scroll" style="height: 100px">
+                  <p class="blog-text-content">
+                    {{this.content}}
+                  </p>
+                  </div>
+                  <div class="text-start">
+                    <p>Technology</p>
+                  <div class="icone-f">
+                    <p>{{ this.teknologi }}</p>
+                    {{!-- <i class="fa-brands fa-js"></i>
+                    <i class="fa-brands fa-angular"></i>
+                    <i class="fa-brands fa-react"></i>
+                    <i class="fa-brands fa-vuejs"></i> --}}
+                  </div>
+                  </div>
+                  <div class="text-center">
+                    <a href="/edit-project/{{this.id}}?image={{ this.image }}" class="btn-edit">Edit</a>
+                    <form action="/delet-project/{{this.id}}?_method=DELETE" method="post" style="display: inline;">
+                    <button onclick="archiveFunction()" type="submit" class="btn-delet">Delete</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </div>
+          {{else}}
+          <p style="text-align: center;">There is no content</p>
+          {{/each}}
+        </div>
+      </section>
+    </main>
+    <script src="/assets/javascript/btn.js" ></script>
+    <script src="/assets/javascript/sweetalert.min.js" ></script>
 {{/layout}}
